@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -z "$HADOOP_HOME" ]; then
+        echo "HADOOP_HOME must be set";
+        exit -1;
+fi
+
+if [ -z "$SMUSKET_HOME" ]; then
+        echo "SMUSKET_HOME must be set";
+        exit -1;
+fi
+
+$HADOOP_HOME/bin/hadoop jar $SMUSKET_HOME/target/SMusket-bin.jar "$@"

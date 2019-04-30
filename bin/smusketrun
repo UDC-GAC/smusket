@@ -1,0 +1,51 @@
+#!/bin/bash
+
+if [ -z "$SPARK_HOME" ]; then
+        echo "SPARK_HOME must be set";
+        exit -1;
+fi
+
+if [ -z "$SMUSKET_HOME" ]; then
+        echo "SMUSKET_HOME must be set";
+        exit -1;
+fi
+
+function help()
+{
+        echo "";
+        echo "Usage: smusketrun -sm|--smusket \"SMUSKET_ARGS\" [SPARK_ARGS]";
+        echo "";
+        exit 127
+}
+
+nargs=$#
+
+while [[ nargs -gt 0 ]]
+ do
+  case "$1" in
+        -sm|--smusket)
+                SMUSKET_ARGS=( "$2" )
+                shift
+		shift
+		nargs=$((nargs-2))
+                ;;
+	*)
+		SPARK_ARGS+=("$1")
+		shift
+		nargs=$((nargs-1))
+		;;
+  esac
+done
+
+if [ -z "$SMUSKET_ARGS" ]; then
+        help
+fi
+
+# Restore positional parameters
+set -- "${SPARK_ARGS[@]}"
+
+LOG_FILE=$SMUSKET_HOME/etc/log4j2.xml
+
+echo "$SPARK_HOME/bin/spark-submit "$@" --conf spark.driver.extraJavaOptions=-Dlog4j.configurationFile=$LOG_FILE --class es.udc.gac.smusket.RunSparkMusket $SMUSKET_HOME/target/smusket-bin.jar ${SMUSKET_ARGS}"
+$SPARK_HOME/bin/spark-submit "$@" --conf spark.driver.extraJavaOptions=-Dlog4j.configurationFile=$LOG_FILE --class es.udc.gac.smusket.RunSparkMusket $SMUSKET_HOME/target/smusket-bin.jar ${SMUSKET_ARGS}
+
