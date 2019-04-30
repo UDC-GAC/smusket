@@ -2,7 +2,7 @@
 
 **SparkMusket (SMusket)** is a parallel read error corrector built upon the open-source [Apache Spark](http://spark.apache.org) Big Data framework that supports single-end and paired-end reads from FASTQ/FASTA datasets. This tool implements an accurate error correction algorithm based on [Musket](http://musket.sourceforge.net/homepage.htm), which relies on the k-spectrum-based approach and provides three correction techniques in a multistage workflow.
 
-Moreover, SMusket uses the [Hadoop Sequence Parser (HSP)](https://github.com/rreye/hsp) library to efficiently read the input datasets stored in the Hadoop Distributed File System (HDFS), being able to process datasets compressed with Gzip and BZip2 codecs.
+Moreover, SMusket takes advantage of the [Hadoop Sequence Parser (HSP)](https://github.com/rreye/hsp) library to efficiently read the input datasets stored in the Hadoop Distributed File System (HDFS), being able to process datasets compressed with Gzip and BZip2 codecs.
 
 ## Getting Started
 
