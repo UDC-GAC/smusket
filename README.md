@@ -1,6 +1,6 @@
 # SMusket: Spark k-spectrum-based error corrector for distributed-memory systems
 
-**SparkMusket (SMusket)** is a parallel read error corrector built upon the open-source [Apache Spark](http://spark.apache.org) Big Data framework that supports single-end and paired-end reads from FASTQ/FASTA datasets. This tool implements an error correction algorithm based on [Musket](http://musket.sourceforge.net/homepage.htm), which relies on the k-spectrum-based approach and provides three correction techniques in a multistage workflow.
+**SparkMusket (SMusket)** is a parallel read error corrector built upon the open-source [Apache Spark](http://spark.apache.org) Big Data framework that supports single-end and paired-end reads from FASTQ/FASTA datasets. This tool implements an accurate error correction algorithm based on [Musket](http://musket.sourceforge.net/homepage.htm), which relies on the k-spectrum-based approach and provides three correction techniques in a multistage workflow.
 
 Moreover, SMusket uses the [Hadoop Sequence Parser (HSP)](https://github.com/rreye/hsp) library to efficiently read the input datasets stored in the Hadoop Distributed File System (HDFS), being able to process datasets compressed with Gzip and BZip2 codecs.
 
@@ -15,7 +15,7 @@ Moreover, SMusket uses the [Hadoop Sequence Parser (HSP)](https://github.com/rre
   * SPARK_HOME environmental variable must be set accordingly
   * See [Spark's Cluster Mode Overview](https://spark.apache.org/docs/latest/cluster-overview.html)
 
-* Download SMusket by executing the following command to clone the github repository:
+* Download SMusket from releases page or clone the github repository by executing the following command:
 
 ```
 git clone https://github.com/rreye/smusket.git
@@ -76,7 +76,7 @@ The following command corrects a single-end dataset compressed in BZip2 using 16
 smusketrun -sm "-i dataset.fastq.bz2 -n 16" -sp "--master spark://207.184.161.138:7077 --deploy-mode client"
 ```
 
-### Configuration
+## Configuration
 
 Some SMusket settings can be configured by means of the *smusket.conf* file located at the *etc* directory. The available parameters are:
 
