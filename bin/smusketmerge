@@ -10,4 +10,4 @@ if [ -z "$SMUSKET_HOME" ]; then
         exit -1;
 fi
 
-$HADOOP_HOME/bin/hadoop jar $SMUSKET_HOME/target/SMusket-bin.jar "$@"
+$HADOOP_HOME/bin/hadoop jar $SMUSKET_HOME/target/smusket-bin.jar "$@"
