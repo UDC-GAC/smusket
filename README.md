@@ -73,7 +73,7 @@ smusketrun -sm "-i dataset1.fastq -p dataset2.fastq -k 24 -maxiter 4 -lowercase"
 The following command corrects a single-end dataset compressed in BZip2 using 16 partitions per executor core, while passing extra arguments to Spark:
 
 ```
-smusketrun -sm "-i dataset.fastq.bz2 -n 16" -sp "--master spark://207.184.161.138:7077 --deploy-mode client"
+smusketrun -sm "-i dataset.fastq.bz2 -n 16" --master spark://207.184.161.138:7077 --deploy-mode client
 ```
 
 ## Configuration
