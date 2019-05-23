@@ -15,12 +15,12 @@ Moreover, SMusket takes advantage of the [Hadoop Sequence Parser (HSP)](https://
   * SPARK_HOME environmental variable must be set accordingly
   * See [Spark's Cluster Mode Overview](https://spark.apache.org/docs/latest/cluster-overview.html)
 
-* Download SMusket from releases page and unzip the tarball. Example on Linux systems:
+* Download SMusket from releases page and unzip the tarball. Alternatively, clone the github repository by executing the following command:
 
 ```
-unzip smusket-1.0.zip
+git clone https://github.com/rreye/smusket.git
 ```
-
+ 
 * Set SMUSKET_HOME and PATH environmental variables. On Linux, you can set them in your profile or your shell configuration files (e.g., .bashrc). Follow the instructions below:
 
 ```
@@ -97,12 +97,6 @@ In case you need to recompile SMusket the prerequisites are:
 
 * Make sure you have a working Apache Maven distribution version 3 or above
   * See [Installing Apache Maven](https://maven.apache.org/install.html)
-
-* Clone the github repository by executing the following command:
-
-```
-git clone https://github.com/rreye/smusket.git
-```
 
 In order to build SMusket just execute the following Maven command from within the SMusket root directory:
 
