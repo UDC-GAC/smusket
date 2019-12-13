@@ -4,13 +4,17 @@
 
 Moreover, SMusket takes advantage of the [Hadoop Sequence Parser (HSP)](https://github.com/rreye/hsp) library to efficiently read the input datasets stored in the Hadoop Distributed File System (HDFS), being able to process datasets compressed with Gzip and BZip2 codecs.
 
+If you use **SMusket** in your research, please cite our work using the following reference:
+
+> Roberto R. Expósito, Jorge González-Domínguez, Juan Touriño. [SMusket: Spark-based DNA error correction on distributed-memory systems](https://doi.org/10.1016/j.future.2019.10.038). Future Generation Computer Systems XX: XX-XX, 2020.
+
 ## Getting Started
 
 ### Prerequisites
 
 * Make sure you have Java Runtime Environment (JRE) version 1.8 or above
   * JAVA_HOME environmental variable must be set accordingly
- 
+
 * Make sure you have a working Spark distribution version 2.0 or above
   * SPARK_HOME environmental variable must be set accordingly
   * See [Spark's Cluster Mode Overview](https://spark.apache.org/docs/latest/cluster-overview.html)
@@ -20,7 +24,7 @@ Moreover, SMusket takes advantage of the [Hadoop Sequence Parser (HSP)](https://
 ```
 git clone https://github.com/rreye/smusket.git
 ```
- 
+
 * Set SMUSKET_HOME and PATH environmental variables. On Linux, you can set them in your profile or your shell configuration files (e.g., .bashrc). Follow the instructions below:
 
 ```
@@ -49,7 +53,7 @@ This command accepts any argument to be passed to SMusket by using -sm|--smusket
 * -maxtrim <int>. Optional. Maximum number of bases that can be trimmed. The default value is 0.
 * -maxerr <int>. Optional. Maximum number of mutations in any region of length *k*. The default value is 4.
 * -maxiter <int> Optional. Maximum number of correction iterations. The default value is 2.
-* -minmulti <int> Optional. Minimum multiplicity for correct k-mers. The default value is autocalculated. 
+* -minmulti <int> Optional. Minimum multiplicity for correct k-mers. The default value is autocalculated.
 * -lowercase. Optional. Write corrected bases in lowercase. By default, corrected bases are written in uppercase.
 * -h. Print out the usage of the program and exit.
 * -v. Print out the version of the program and exit
@@ -108,11 +112,12 @@ This will recreate the *jar* file needed to run SMusket. Note that the first tim
 
 ## Authors
 
+SMusket is developed in the [Computer Architecture Group](http://gac.udc.es/english) at the [Universidade da Coruña](https://www.udc.es/en) by:
+
 * **Roberto R. Expósito** (http://gac.udc.es/~rober)
 * **Jorge González-Domínguez** (http://gac.udc.es/~jgonzalezd)
 * **Juan Touriño** (http://gac.udc.es/~juan)
 
 ## License
 
-This library is distributed as free software and is publicly available under the GPLv3 license (see the [LICENSE](LICENSE) file for more details)
-
+This tool is distributed as free software and is publicly available under the GPLv3 license (see the [LICENSE](LICENSE) file for more details)
