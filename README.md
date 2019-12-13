@@ -4,6 +4,8 @@
 
 Moreover, SMusket takes advantage of the [Hadoop Sequence Parser (HSP)](https://github.com/rreye/hsp) library to efficiently read the input datasets stored in the Hadoop Distributed File System (HDFS), being able to process datasets compressed with Gzip and BZip2 codecs.
 
+### Citation
+
 If you use **SMusket** in your research, please cite our work using the following reference:
 
 > Roberto R. Expósito, Jorge González-Domínguez, Juan Touriño. [SMusket: Spark-based DNA error correction on distributed-memory systems](https://doi.org/10.1016/j.future.2019.10.038). Future Generation Computer Systems (In press).
