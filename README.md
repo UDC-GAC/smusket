@@ -8,7 +8,7 @@ Moreover, SMusket takes advantage of the [Hadoop Sequence Parser (HSP)](https://
 
 If you use **SMusket** in your research, please cite our work using the following reference:
 
-> Roberto R. Expósito, Jorge González-Domínguez, Juan Touriño. [SMusket: Spark-based DNA error correction on distributed-memory systems](https://doi.org/10.1016/j.future.2019.10.038). Future Generation Computer Systems (In press).
+> Roberto R. Expósito, Jorge González-Domínguez, Juan Touriño. [SMusket: Spark-based DNA error correction on distributed-memory systems](https://doi.org/10.1016/j.future.2019.10.038). Future Generation Computer Systems 111: 698-713 (2020).
 
 ## Getting Started
 
