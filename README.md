@@ -104,6 +104,8 @@ In case you need to recompile SMusket the prerequisites are:
 * Make sure you have a working Apache Maven distribution version 3 or above
   * See [Installing Apache Maven](https://maven.apache.org/install.html)
 
+* Make sure you have installed the [Hadoop Sequence Parser (HSP)](https://github.com/rreye/hsp) library
+
 In order to build SMusket just execute the following Maven command from within the SMusket root directory:
 
 ```
