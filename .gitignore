@@ -20,4 +20,4 @@ hs_err_pid*
 target/classes/
 target/maven-archiver/
 target/maven-status/
-target/smusket-1.0.jar
+target/smusket-*.*.jar
