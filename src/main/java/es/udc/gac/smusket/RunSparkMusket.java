@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Universidade da Coruña
+ * Copyright (C) 2021 Universidade da Coruña
  *
  * This file is part of SparkMusket.
  *
@@ -38,6 +38,7 @@ import org.apache.spark.broadcast.Broadcast;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.storage.StorageLevel;
 
+import es.udc.gac.hadoop.sequence.parser.mapreduce.PairText;
 import es.udc.gac.hadoop.sequence.parser.mapreduce.PairedEndSequenceInputFormat;
 import es.udc.gac.hadoop.sequence.parser.mapreduce.SingleEndSequenceInputFormat;
 import es.udc.gac.smusket.util.Configuration;
@@ -71,7 +72,6 @@ public class RunSparkMusket {
 		Class<? extends SingleEndSequenceInputFormat> inputFormatClass;
 		FileSystem fs;
 		JavaRDD<Sequence> readsRDD = null;
-		JavaPairRDD<LongWritable,Text> inputReadsRDD = null;
 		JavaPairRDD<Sequence,Sequence> pairedReadsRDD = null;
 		JavaPairRDD<Long,Short> kmersRDD = null;
 		Broadcast<Map<Long, Short>> kmersMapBC;
@@ -213,7 +213,7 @@ public class RunSparkMusket {
 		if (!options.isPaired()) {
 			logger.info("running in single-end mode");
 
-			inputReadsRDD = jSparkContext.newAPIHadoopFile(inputPath1.toString(), 
+			JavaPairRDD<LongWritable,Text> inputReadsRDD = jSparkContext.newAPIHadoopFile(inputPath1.toString(), 
 					inputFormatClass, LongWritable.class, Text.class, hadoopConf);
 
 			// Parse reads
@@ -246,22 +246,21 @@ public class RunSparkMusket {
 			PairedEndSequenceInputFormat.setLeftInputPath(hadoopConf, inputPath1, inputFormatClass);
 			PairedEndSequenceInputFormat.setRightInputPath(hadoopConf, inputPath2, inputFormatClass);
 
-			inputReadsRDD = jSparkContext.newAPIHadoopFile(inputPath1.toString(), 
-					PairedEndSequenceInputFormat.class, LongWritable.class, Text.class, hadoopConf);
+			JavaPairRDD<LongWritable,PairText> inputReadsRDD = jSparkContext.newAPIHadoopFile(inputPath1.toString(), 
+					PairedEndSequenceInputFormat.class, LongWritable.class, PairText.class, hadoopConf);
 
 			// Parse reads
-			pairedReadsRDD = inputReadsRDD.mapToPair(new PairFunction<Tuple2<LongWritable, Text>, Sequence, Sequence>() {
+			pairedReadsRDD = inputReadsRDD.mapToPair(new PairFunction<Tuple2<LongWritable, PairText>, Sequence, Sequence>() {
 				/**
 				 * 
 				 */
 				private static final long serialVersionUID = -6470737542648634108L;
 
 				@Override
-				public Tuple2<Sequence, Sequence> call(Tuple2<LongWritable, Text> item) {
-					int length = (int) item._1.get();
-					Sequence leftSeq = stringParserBC.value().parseSequence(item._2.getBytes(), 0, length);
-					Sequence rightSeq = stringParserBC.value().parseSequence(item._2.getBytes(), length, item._2.getLength());
-					return new Tuple2<Sequence, Sequence>(leftSeq, rightSeq);
+				public Tuple2<Sequence, Sequence> call(Tuple2<LongWritable, PairText> read) {
+					Sequence left = stringParserBC.value().parseSequence(read._2.getLeft().getBytes(), 0, read._2.getLeft().getLength());
+					Sequence right = stringParserBC.value().parseSequence(read._2.getRight().getBytes(), 0, read._2.getRight().getLength());
+					return new Tuple2<Sequence, Sequence>(left, right);
 				}
 			});
 
