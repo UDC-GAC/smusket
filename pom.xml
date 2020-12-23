@@ -18,7 +18,7 @@
 	<properties>
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                 <hadoop-sequence-parser.version>1.2</hadoop-sequence-parser.version>
-                <spark.version>2.4.0</spark.version>
+                <spark.version>2.4.7</spark.version>
 		<commons-lang3.version>3.11</commons-lang3.version>
 		<log4j2.version>2.13.3</log4j2.version>
                 <maven.compiler.version>3.8.1</maven.compiler.version>
