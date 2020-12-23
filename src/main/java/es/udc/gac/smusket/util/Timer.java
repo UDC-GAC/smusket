@@ -21,7 +21,7 @@ package es.udc.gac.smusket.util;
 public class Timer {
 
 	public static final int MAX_TIMERS = 8;
-	private static final double TENTO9 = new Long(1000000000L).doubleValue();
+	private static final double TENTO9 = Double.valueOf(1000000000L);
 	private double startTime[] = new double[MAX_TIMERS];
 	private double elapsedTime[] = new double[MAX_TIMERS];
 	private double totalTime[] = new double[MAX_TIMERS];
