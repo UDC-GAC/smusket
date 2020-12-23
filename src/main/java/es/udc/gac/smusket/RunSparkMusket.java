@@ -179,6 +179,7 @@ public class RunSparkMusket {
 
 		// Configure input buffer size for HSP library
 		es.udc.gac.hadoop.sequence.parser.util.Configuration.setInputBufferSize(hadoopConf, Configuration.INPUT_BUFFER_SIZE);
+		es.udc.gac.hadoop.sequence.parser.util.Configuration.setTrimSequenceName(hadoopConf, true);
 
 		// Get input format class
 		inputFormatClass = HDFSIOUtils.getInputFormatClass(hadoopConf, options.getInputFileFormat(), inputPath1);
@@ -218,9 +219,6 @@ public class RunSparkMusket {
 
 			// Parse reads
 			readsRDD = inputReadsRDD.values().map(new Function<Text, Sequence>() {
-				/**
-				 * 
-				 */
 				private static final long serialVersionUID = 1647254546130571830L;
 
 				@Override
@@ -251,9 +249,6 @@ public class RunSparkMusket {
 
 			// Parse reads
 			pairedReadsRDD = inputReadsRDD.mapToPair(new PairFunction<Tuple2<LongWritable, PairText>, Sequence, Sequence>() {
-				/**
-				 * 
-				 */
 				private static final long serialVersionUID = -6470737542648634108L;
 
 				@Override

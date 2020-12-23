@@ -51,7 +51,7 @@ public class SequenceParserFactory {
 		if (inputFormatClass == FastQInputFormat.class)
 			return new FastQParser();
 		else if (inputFormatClass == FastAInputFormat.class)
-			return new FastQParser();
+			return new FastAParser();
 		else
 			throw new IllegalArgumentException("Unrecognized format class ("+inputFormatClass+")");
 	}
