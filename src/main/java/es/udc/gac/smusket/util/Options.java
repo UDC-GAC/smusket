@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Universidade da Coruña
+ * Copyright (C) 2021 Universidade da Coruña
  *
  * This file is part of SparkMusket.
  *
