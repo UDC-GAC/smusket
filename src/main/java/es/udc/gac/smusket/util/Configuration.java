@@ -26,7 +26,7 @@ import java.util.Map;
 
 public final class Configuration {
 
-	public static final String SMUSKET_VERSION = "1.0";
+	public static final String SMUSKET_VERSION = "1.1";
 	public static final String SMUSKET_WEBPAGE = "https://github.com/rreye/smusket";
 
 	// SparkMusket configuration (etc/smusket.conf)
