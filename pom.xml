@@ -20,7 +20,7 @@
                 <hadoop-sequence-parser.version>1.2</hadoop-sequence-parser.version>
                 <spark.version>2.4.0</spark.version>
 		<commons-lang3.version>3.11</commons-lang3.version>
-		<log4j2.version>2.13.3</log4j2.version>
+		<log4j2.version>2.15.0</log4j2.version>
                 <maven.compiler.version>3.8.1</maven.compiler.version>
                 <maven.compiler.source>1.8</maven.compiler.source>
                 <maven.compiler.target>1.8</maven.compiler.target>
