@@ -18,13 +18,13 @@
 	<properties>
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                 <hadoop-sequence-parser.version>1.2</hadoop-sequence-parser.version>
-                <spark.version>2.4.0</spark.version>
-		<commons-lang3.version>3.11</commons-lang3.version>
-		<log4j2.version>2.13.3</log4j2.version>
-                <maven.compiler.version>3.8.1</maven.compiler.version>
+                <spark.version>2.4.8</spark.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<log4j2.version>2.17.1</log4j2.version>
+                <maven.compiler.version>3.11.0</maven.compiler.version>
                 <maven.compiler.source>1.8</maven.compiler.source>
                 <maven.compiler.target>1.8</maven.compiler.target>
-                <maven.assembly.version>3.3.0</maven.assembly.version>
+                <maven.assembly.version>3.6.0</maven.assembly.version>
 	</properties>
 
 	<dependencies>
@@ -87,6 +87,9 @@
 						<manifest>
 							<mainClass>es.udc.gac.smusket.RunMerge</mainClass>
 						</manifest>
+						<manifestEntries>
+							<Multi-Release>true</Multi-Release>
+						</manifestEntries>
 					</archive>
 				</configuration>
 				<executions>
